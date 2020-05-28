@@ -1,0 +1,63 @@
+2020-05-19 16:59:04.251 +05:30 [INF] Starting web host
+2020-05-19 16:59:04.681 +05:30 [INF] User profile is available. Using 'C:\Users\Swati Jain\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2020-05-19 16:59:04.960 +05:30 [INF] Now listening on: https://localhost:5001
+2020-05-19 16:59:04.964 +05:30 [INF] Now listening on: http://localhost:5000
+2020-05-19 16:59:04.966 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2020-05-19 16:59:04.968 +05:30 [INF] Hosting environment: Development
+2020-05-19 16:59:04.970 +05:30 [INF] Content root path: D:\corewebapi
+2020-05-19 18:57:12.169 +05:30 [INF] Application is shutting down...
+2020-05-19 18:57:21.609 +05:30 [INF] Starting web host
+2020-05-19 18:57:22.017 +05:30 [INF] User profile is available. Using 'C:\Users\Swati Jain\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2020-05-19 18:57:23.308 +05:30 [INF] Now listening on: https://localhost:5001
+2020-05-19 18:57:23.310 +05:30 [INF] Now listening on: http://localhost:5000
+2020-05-19 18:57:23.312 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2020-05-19 18:57:23.313 +05:30 [INF] Hosting environment: Development
+2020-05-19 18:57:23.314 +05:30 [INF] Content root path: D:\corewebapi
+2020-05-19 18:59:05.319 +05:30 [INF] Request starting HTTP/1.1 GET https://localhost:5001/Student  
+2020-05-19 18:59:05.599 +05:30 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: 'System.DateTime', Current time: 'System.DateTime'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2020-05-19 18:59:05.686 +05:30 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: 'System.DateTime', Current time: 'System.DateTime'.
+2020-05-19 18:59:05.694 +05:30 [INF] Authorization failed.
+2020-05-19 18:59:05.705 +05:30 [INF] AuthenticationScheme: Bearer was challenged.
+2020-05-19 18:59:05.709 +05:30 [INF] HTTP GET /Student responded 401 in 377.34049942783514 ms
+2020-05-19 18:59:05.725 +05:30 [INF] Request finished in 413.1006ms 401 
+2020-05-19 19:01:25.728 +05:30 [INF] Request starting HTTP/1.1 POST https://localhost:5001/Account application/json 56
+2020-05-19 19:01:25.739 +05:30 [INF] Executing endpoint 'corewebapi.Controllers.AccountController.Login (CoreWebApi)'
+2020-05-19 19:01:25.812 +05:30 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login(CoreWebApi.Models.Student) on controller corewebapi.Controllers.AccountController (CoreWebApi).
+2020-05-19 19:01:26.584 +05:30 [INF] Entity Framework Core 3.1.4 initialized 'MyDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-05-19 19:01:27.430 +05:30 [INF] Executed DbCommand (102ms) [Parameters=[@__student_Name_0='?' (Size = 4000), @__student_EmailAddress_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[Id], [s].[DOB], [s].[EmailAddress], [s].[Name]
+FROM [Students] AS [s]
+WHERE ([s].[Name] = @__student_Name_0) AND ([s].[EmailAddress] = @__student_EmailAddress_1)
+2020-05-19 19:01:27.608 +05:30 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2020-05-19 19:01:27.677 +05:30 [INF] Executed action corewebapi.Controllers.AccountController.Login (CoreWebApi) in 1854.2843ms
+2020-05-19 19:01:27.680 +05:30 [INF] Executed endpoint 'corewebapi.Controllers.AccountController.Login (CoreWebApi)'
+2020-05-19 19:01:27.681 +05:30 [INF] HTTP POST /Account responded 200 in 1949.1522023798138 ms
+2020-05-19 19:01:27.689 +05:30 [INF] Request finished in 1961.5938ms 200 text/plain; charset=utf-8
+2020-05-19 19:01:55.822 +05:30 [INF] Request starting HTTP/1.1 GET https://localhost:5001/Student  
+2020-05-19 19:01:55.850 +05:30 [INF] Successfully validated the token.
+2020-05-19 19:01:55.855 +05:30 [INF] Authorization was successful.
+2020-05-19 19:01:55.856 +05:30 [INF] Executing endpoint 'CoreWebApi.Controllers.StudentController.Get (CoreWebApi)'
+2020-05-19 19:01:55.864 +05:30 [INF] Route matched with {action = "Get", controller = "Student"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Get() on controller CoreWebApi.Controllers.StudentController (CoreWebApi).
+2020-05-19 19:01:55.871 +05:30 [WRN] Get Called 1:31:55 PM
+2020-05-19 19:01:55.924 +05:30 [INF] Entity Framework Core 3.1.4 initialized 'MyDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-05-19 19:01:55.942 +05:30 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[DOB], [s].[EmailAddress], [s].[Name]
+FROM [Students] AS [s]
+2020-05-19 19:01:55.945 +05:30 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[CoreWebApi.Models.Student, CoreWebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2020-05-19 19:01:55.956 +05:30 [INF] Executed action CoreWebApi.Controllers.StudentController.Get (CoreWebApi) in 89.698ms
+2020-05-19 19:01:55.958 +05:30 [INF] Executed endpoint 'CoreWebApi.Controllers.StudentController.Get (CoreWebApi)'
+2020-05-19 19:01:55.959 +05:30 [INF] HTTP GET /Student responded 200 in 135.41203566128775 ms
+2020-05-19 19:01:55.961 +05:30 [INF] Request finished in 139.2546ms 200 application/json; charset=utf-8
+2020-05-20 15:57:07.182 +05:30 [INF] Starting web host
+2020-05-20 15:57:10.856 +05:30 [INF] User profile is available. Using 'C:\Users\Swati Jain\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2020-05-20 15:57:12.018 +05:30 [INF] Now listening on: https://localhost:5001
+2020-05-20 15:57:12.020 +05:30 [INF] Now listening on: http://localhost:5000
+2020-05-20 15:57:12.020 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2020-05-20 15:57:12.021 +05:30 [INF] Hosting environment: Development
+2020-05-20 15:57:12.022 +05:30 [INF] Content root path: D:\corewebapi

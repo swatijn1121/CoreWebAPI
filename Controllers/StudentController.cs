@@ -6,17 +6,23 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using CoreWebApi.Models; 
 using CoreWebApi.Context;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CoreWebApi.Controllers
 {
+    
     [ApiController]
     [Route("[controller]")]
+    [Authorize]
     public class StudentController : ControllerBase
     {
-        private MyDbContext dc;
-        public StudentController(MyDbContext _dc)
+        private readonly MyDbContext dc;
+        private readonly ILogger<StudentController> logger;
+        
+        public StudentController(MyDbContext _dc,ILogger<StudentController> _logger)
         {
             dc = _dc;
+            logger = _logger;
         }
         [HttpGet()]
         public IActionResult Get()
@@ -33,6 +39,7 @@ namespace CoreWebApi.Controllers
         [HttpPost]
         public IActionResult Post(Student student)
         {
+            logger.LogInformation($"Post {student.Name} Called {DateTime.UtcNow.ToLongTimeString()}");
             if (student == null)
             {
                 return BadRequest();
@@ -40,7 +47,7 @@ namespace CoreWebApi.Controllers
             dc.Students.Add(student);
             dc.SaveChanges();
            // return Created(new Uri("https://localhost:5001/Student/"+student.id),student);
-           return CreatedAtAction(nameof(Get),new { id = student.id }, student);
+           return CreatedAtAction(nameof(Get),new { id = student.Id }, student);
         }
     }
 }
